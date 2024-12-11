@@ -27,7 +27,7 @@ export const TodoList = () => {
             />
             <span
               className={`text-gray-800 text-start ${
-                todo.completed ? "line-through text-gray-400" : ""
+                todo.completed ? "line-through text-gray-300" : ""
               }`}
             >
               {todo.text}
