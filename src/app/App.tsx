@@ -9,7 +9,7 @@ function App() {
     <div className="flex min-w-[600px] items-center py-10">
       <BackgroundBeamsWithCollision>
       <h1 className="text-[100px] font-thin text-[#e1cdcc]  mb-3">todos</h1>
-      <div className="relative flex flex-col min-h-[680px] w-full max-w-xl bg-white shadow-xl p-6 items-center justify-between">
+      <div className="relative flex flex-col min-h-[680px] w-full max-w-xl bg-white shadow-xl p-6 items-center justify-between rounded-3xl">
         <AddTodo />
         <TodoList />
         <Filters />

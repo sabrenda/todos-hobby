@@ -19,7 +19,7 @@ export const AddTodo = () => {
         placeholder="What needs to be done?"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        onKeyPress={(e) => e.key === "Enter" && handleAddTodo()}
+        onKeyDown={(e) => e.key === "Enter" && handleAddTodo()}
         className="w-full max-w-lg border border-gray-300 rounded-lg px-4 py-2 text-gray-700 placeholder:font-light"
       />
     </div>

@@ -23,7 +23,7 @@ export const TodoList = () => {
               type="checkbox"
               checked={todo.completed}
               onChange={() => toggleTodo(todo.id)}
-              className="min-h-5 min-w-5 text-blue-500 border-gray-300 focus:ring-blue-400 rounded"
+              className="min-h-5 min-w-5 text-blue-500 border-gray-300 focus:ring-blue-400 rounded cursor-pointer"
             />
             <span
               className={`text-gray-800 text-start ${

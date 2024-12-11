@@ -1,5 +1,6 @@
 // src/store/useTodosStore.ts
 import { create } from "zustand";
+import { v4 as uuidv4 } from "uuid";
 
 export type Todo = {
   id: string;
@@ -7,7 +8,7 @@ export type Todo = {
   completed: boolean;
 };
 
-type TodosState = {
+export type TodosState = {
   todos: Todo[];
   filter: "all" | "active" | "completed";
   addTodo: (text: string) => void;
@@ -22,10 +23,7 @@ export const useTodosStore = create<TodosState>((set, get) => ({
   filter: "all",
   addTodo: (text) =>
     set((state) => ({
-      todos: [
-        ...state.todos,
-        { id: crypto.randomUUID(), text, completed: false },
-      ],
+      todos: [...state.todos, { id: uuidv4(), text, completed: false }],
     })),
   toggleTodo: (id) =>
     set((state) => ({
@@ -40,4 +38,3 @@ export const useTodosStore = create<TodosState>((set, get) => ({
   setFilter: (filter) => set({ filter }),
   activeCount: () => get().todos.filter((todo) => !todo.completed).length,
 }));
-
