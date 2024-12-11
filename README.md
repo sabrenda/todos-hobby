@@ -6,7 +6,8 @@
 
 ### Start From Your Terminal 🏁
 
-```shell
+```bash
 $ npm i
 $ npm start
+$ npm test
 ```
