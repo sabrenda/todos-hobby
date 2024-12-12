@@ -1,3 +1,4 @@
+import { cn } from '../../shared/lib/utils';
 import { useTodosStore } from "../../shared/store/useTodosStore";
 
 export const TodoList = () => {
@@ -26,9 +27,10 @@ export const TodoList = () => {
               className="min-h-5 min-w-5 text-blue-500 border-gray-300 focus:ring-blue-400 rounded cursor-pointer"
             />
             <span
-              className={`text-gray-800 text-start ${
+              className={cn(
+                "text-gray-800 text-start",
                 todo.completed ? "line-through text-gray-500/30" : ""
-              }`}
+              )}
             >
               {todo.text}
             </span>
