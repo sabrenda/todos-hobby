@@ -12,7 +12,7 @@ export const TodoList = () => {
   });
 
   return (
-    <ul className="min-h-[512px] w-full max-w-lg mx-auto mt-4">
+    <ul className="min-h-[512px] max-sm:min-h-full w-full max-w-lg mx-auto mt-4">
       {filteredTodos.map((todo) => (
         <li
           key={todo.id}
@@ -27,7 +27,7 @@ export const TodoList = () => {
             />
             <span
               className={`text-gray-800 text-start ${
-                todo.completed ? "line-through text-gray-300" : ""
+                todo.completed ? "line-through text-gray-500/30" : ""
               }`}
             >
               {todo.text}
