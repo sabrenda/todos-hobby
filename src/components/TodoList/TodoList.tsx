@@ -20,7 +20,7 @@ export const TodoList = () => {
   }, [todos, filter]);
 
   return (
-    <ul className="min-h-[412px] h-full overflow-y-scroll w-full max-w-lg mx-auto mt-4 pb-4" >
+    <ul className="h-full overflow-y-scroll w-full max-w-lg mx-auto mt-4 pb-4" >
       {filteredTodos.map((todo) => (
         <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} />
       ))}
