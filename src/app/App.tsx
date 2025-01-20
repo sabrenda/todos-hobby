@@ -4,12 +4,12 @@ import { TodoList } from "../components/TodoList/TodoList";
 import { BackgroundBeamsWithCollision } from "../shared/ui/background-beams-with-collision";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="flex min-w-[600px] max-sm:min-w-[400px] items-center py-10cd">
+    <div className="flex h-screen w-full items-center sm:p-5">
       <BackgroundBeamsWithCollision>
-        <h1 className="text-[100px] font-thin text-[#e1cdcc]  mb-3">todos</h1>
-        <div className="relative flex flex-col min-h-[680px] w-full max-w-xl bg-white shadow-xl p-6 items-center justify-between rounded-3xl max-sm:rounded-xl">
+        <h1 className="text-[100px] font-thin text-[#e1cdcc] mb-3">todos</h1>
+        <div className="relative h-full min-h-[400px] flex flex-col w-full max-w-xl bg-white shadow-xl p-6 items-center justify-between rounded-3xl max-sm:rounded-xl sm:mb-4">
           <AddTodo />
           <TodoList />
           <Filters />
@@ -17,6 +17,6 @@ function App() {
       </BackgroundBeamsWithCollision>
     </div>
   );
-}
+};
 
 export default App;

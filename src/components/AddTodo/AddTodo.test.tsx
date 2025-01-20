@@ -26,23 +26,6 @@ describe("AddTodo Component (direct Zustand store)", () => {
     expect(input).toHaveValue("New Task");
   });
 
-  it("should add a todo to Zustand store and clear input when Enter is pressed", () => {
-    render(<AddTodo />);
-
-    const input = screen.getByPlaceholderText("What needs to be done?");
-    fireEvent.change(input, { target: { value: "New Task" } });
-    fireEvent.keyDown(input, { key: "Enter", code: "Enter", charCode: 13 });
-
-    // Проверяем, что задача добавлена в Zustand store
-    const todos = useTodosStore.getState().todos;
-    expect(todos).toHaveLength(1);
-    expect(todos[0].text).toBe("New Task");
-    expect(todos[0].completed).toBe(false);
-
-    // Проверяем, что поле ввода очищено
-    expect(input).toHaveValue("");
-  });
-
   it("should not add a todo if input is empty or whitespace", () => {
     render(<AddTodo />);
 

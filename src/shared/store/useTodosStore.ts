@@ -16,12 +16,11 @@ export type TodosState = {
   clearCompleted: () => void;
   setFilter: (filter: "all" | "active" | "completed") => void;
   activeCount: () => number;
+  filteredTodos: () => Todo[];
+  filteredCount: () => number;
 };
 
-export const useTodosStore = create<
-  TodosState,
-  [["zustand/persist", TodosState]]
->(
+export const useTodosStore = create<TodosState, [["zustand/persist", TodosState]]>(
   persist<TodosState>(
     (set, get) => ({
       todos: [],
@@ -42,6 +41,18 @@ export const useTodosStore = create<
         })),
       setFilter: (filter) => set({ filter }),
       activeCount: () => get().todos.filter((todo) => !todo.completed).length,
+      filteredTodos: () => {
+        const { todos, filter } = get();
+        switch (filter) {
+          case "active":
+            return todos.filter((todo) => !todo.completed);
+          case "completed":
+            return todos.filter((todo) => todo.completed);
+          default:
+            return todos;
+        }
+      },
+      filteredCount: () => get().filteredTodos().length,
     }),
     {
       name: "todos-storage",

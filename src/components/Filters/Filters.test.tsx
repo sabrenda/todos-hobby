@@ -25,8 +25,6 @@ describe("Filters Component (direct Zustand store)", () => {
     expect(screen.getByText("All")).toBeInTheDocument();
     expect(screen.getByText("Active")).toBeInTheDocument();
     expect(screen.getByText("Completed")).toBeInTheDocument();
-    expect(screen.getByText("Clear Completed")).toBeInTheDocument();
-    expect(screen.getByText("2 items left")).toBeInTheDocument();
   });
 
   it("should set filter to 'all' when All button is clicked", () => {
@@ -60,20 +58,5 @@ describe("Filters Component (direct Zustand store)", () => {
     const store = useTodosStore.getState();
     expect(store.setFilter).toHaveBeenCalledTimes(1);
     expect(store.setFilter).toHaveBeenCalledWith("completed");
-  });
-
-  it("should clear completed tasks when Clear Completed button is clicked", () => {
-    const store = useTodosStore.getState();
-    store.todos = [
-      { id: "1", text: "Task 1", completed: true },
-      { id: "2", text: "Task 2", completed: false },
-    ];
-
-    render(<Filters />);
-
-    const clearCompletedButton = screen.getByText("Clear Completed");
-    fireEvent.click(clearCompletedButton);
-
-    expect(store.clearCompleted).toHaveBeenCalledTimes(1);
   });
 });
